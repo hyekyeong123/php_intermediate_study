@@ -1,15 +1,11 @@
 <?php
     try {
     // 데이터베이스 연결하기
-    include __DIR__.'/../includes/dbcon.php';
+        include __DIR__.'/../includes/dbcon.php';
+        include __DIR__.'/../includes/functions.php';
 
-        //sql 입력하기(준비된 구문 사용하기)
-        $sql = "DELETE from joke where id=:id";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $_POST['id']);
-        // hidden으로 보냈으니까
-
-        $stmt->execute();
+        delete($pdo,'joke','id',$_POST['id']);
+        // function delete($pdo, $table, $primaryKey, $id){
 
         header('location:jokes.php');
     } catch (PDOException $e) {

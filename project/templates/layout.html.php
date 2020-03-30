@@ -14,7 +14,7 @@
         <ul>
             <li><a href="index2.php">Home</a></li>
             <li><a href="jokes.php">유머 글 목록</a></li>
-            <li><a href="addjoke.php">유머 글 목록 추가하기</a></li>
+            <li><a href="editjoke.php">유머 글 목록 추가하기</a></li>
         </ul>
     </nav>
     <main>

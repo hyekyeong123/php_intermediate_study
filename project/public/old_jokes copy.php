@@ -1,15 +1,28 @@
-
+<!-- 유머 글 목록 보여주는 곳 -->
 <?php
 
 try{
     // 데이터 베이스 연결
     include __DIR__.'/../includes/dbcon.php';
-    include __DIR__.'/../classes/DatabaseTable.php';
+    include __DIR__.'/../includes/functions.php';
 
-    $jokesTable = new DatabaseTable($pdo,'joke','id');
-    $authorsTable = new DatabaseTable($pdo,'author','id');
-
-    $result = $jokesTable->findAll();
+    // // --------------------------------------------------------------------------------------------------
+    // // $sql = "SELECT `joke`.`id`,`joketext`,`name`,`email` FROM `joke` INNER JOIN `author` ON `authorid`=`author`.`id`";
+    // // //아이디를 가져와 나중에 삭제하기 용이 
+    // // $jokes = $pdo->query($sql);
+    
+    // // 간단하게 함수로 표현
+    // $jokes = allJokes($pdo);
+    // // -------------------------------------------------------------------------------------------------------
+    
+    // // while($row = $result->fetch()){
+        // //     $jokes[] = [
+            // //         'id'=>$row['id'],
+            // //         'joketext'=>$row['joketext']
+            // //     ];
+            // // } //jokes.html.php에서 한번 돌림
+    //-------------------------------------------------------------------------- 
+    $result = findAll($pdo,'joke');
     //joke테이블에서 모두 가져오기
 
     $jokes = [];
